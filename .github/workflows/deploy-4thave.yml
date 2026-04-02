@@ -1,0 +1,69 @@
+name: Deploy 4thave
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "08_blog-master/05-4thave/**"
+  workflow_dispatch: # 手動で実行できるボタンも残す
+
+defaults:
+  run:
+    working-directory: 08_blog-master/05-4thave
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚚 Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          sparse-checkout: |
+            08_blog-master/05-4thave
+          sparse-checkout-cone-mode: false
+
+      - name: 🛡️ Fix Dubious Ownership
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
+      - name: ⚙️ Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: 08_blog-master/05-4thave/package-lock.json
+
+      - name: 📦 Install Dependencies
+        run: npm ci
+
+      - name: 💾 Setup Astro Build Cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            08_blog-master/05-4thave/node_modules/.astro
+            08_blog-master/05-4thave/node_modules/.cache
+          key: ${{ runner.os }}-astro-build-4thave-${{ hashFiles('08_blog-master/05-4thave/package-lock.json') }}-${{ github.run_number }}
+          restore-keys: |
+            ${{ runner.os }}-astro-build-4thave-${{ hashFiles('08_blog-master/05-4thave/package-lock.json') }}-
+            ${{ runner.os }}-astro-build-4thave-
+
+      - name: 🔨 Build Astro Project
+        run: npm run build
+
+      - name: 🚀 Deploy via FTP (Diff only)
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FOURTHAVE_FTP_SERVER || secrets.FTP_SERVER }}
+          username: ${{ secrets.FOURTHAVE_FTP_USERNAME || secrets.FTP_USERNAME }}
+          password: ${{ secrets.FOURTHAVE_FTP_PASSWORD || secrets.FTP_PASSWORD }}
+          local-dir: 08_blog-master/05-4thave/dist/
+          server-dir: /4thavenue.info/public_html/
+          state-name: .ftp-deploy-sync-state-4thave.json
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**

@@ -1,0 +1,50 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BlogGrid from '../../components/BlogGrid';
+import { getCollection } from 'astro:content';
+
+const allBlogs = await getCollection('blogs');
+---
+
+<Layout title="ブログ運営実績" description="現在運営している特化ブログ・情報サイトの一覧です。">
+	<div class="max-w-6xl mx-auto py-12">
+		<header class="text-center mb-20">
+			<h1 class="text-4xl md:text-6xl font-black mb-6 font-['Outfit'] italic tracking-tighter">
+				Managed <span class="text-gradient">Blogs</span>
+			</h1>
+			<p class="text-gray-400 max-w-2xl mx-auto">
+				趣味から実用まで、複数のドメインを運営し、SEOやAI活用、<br class="hidden md:block" />
+				コミュニティ構築のテストベッドとして活用しています。
+			</p>
+		</header>
+
+		<BlogGrid blogs={allBlogs} client:load />
+		
+		<section class="mt-32 glass p-12 rounded-[3rem] border-white/5 bg-gradient-to-br from-green-500/5 to-transparent">
+			<div class="grid md:grid-cols-2 gap-12 items-center">
+				<div>
+					<h2 class="text-2xl font-bold mb-6">運営ポリシー</h2>
+					<p class="text-gray-400 leading-loose">
+						私のブログ運営は、単なる収益化プログラムではありません。
+						「どうすればAIをライターではなく、編集者や戦略パートナーとして迎えられるか？」
+						という問いに対する、リアルタイムな実験場です。
+					</p>
+				</div>
+				<div class="space-y-4 text-sm text-gray-500">
+					<div class="flex items-center space-x-3">
+						<span class="text-green-500">✔</span>
+						<span>AIによる構造化データの最適化</span>
+					</div>
+					<div class="flex items-center space-x-3">
+						<span class="text-green-500">✔</span>
+						<span>人間による体験と情報の独自の価値付与</span>
+					</div>
+					<div class="flex items-center space-x-3">
+						<span class="text-green-500">✔</span>
+						<span>高速なビルドとデプロイパイプラインの構築</span>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+</Layout>

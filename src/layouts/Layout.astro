@@ -1,0 +1,127 @@
+---
+import "../styles/global.css";
+
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description = "4thave - ブログ運営・SNS・note・備忘録" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title} | 4thave</title>
+		<meta name="description" content={description} />
+
+		<!-- Google Analytics 4 -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-7VW60YTX4F"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'G-7VW60YTX4F');
+		</script>
+		
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={Astro.url} />
+		<meta property="og:title" content={`${title} | 4thave`} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={new URL('/4thave-ogp.jpg', Astro.site)} />
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={Astro.url} />
+		<meta property="twitter:title" content={`${title} | 4thave`} />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content={new URL('/4thave-ogp.jpg', Astro.site)} />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=Outfit:wght@400;700;800&display=swap" rel="stylesheet">
+	</head>
+	<body class="antialiased">
+		<div class="bg-mesh"></div>
+		
+		<header class="fixed top-0 left-0 w-full z-50 px-6 py-4">
+			<nav class="max-w-6xl mx-auto glass rounded-2xl px-6 py-3 flex justify-between items-center">
+				<a href="/" class="text-2xl font-black tracking-tighter text-gradient font-['Outfit']">4thave</a>
+				<div class="hidden md:flex space-x-8 text-sm font-medium">
+					<a href="/" class="hover:text-green-400 transition-colors">Top</a>
+					<a href="/notes" class="hover:text-green-400 transition-colors">Blog</a>
+					<a href="/blogs" class="hover:text-green-400 transition-colors">Portfolio</a>
+				</div>
+				<button id="menu-toggle" class="md:hidden text-white p-2">
+					<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+					</svg>
+				</button>
+			</nav>
+
+			<!-- Mobile Menu Overlay -->
+			<div id="mobile-menu" class="hidden md:hidden fixed inset-0 z-40">
+				<div class="absolute inset-0 bg-black/60 backdrop-blur-xl"></div>
+				<nav class="relative z-10 h-full flex flex-col items-center justify-center space-y-12">
+					<a href="/" class="text-4xl font-black font-['Outfit'] text-gradient italic mobile-link">Top</a>
+					<a href="/notes" class="text-4xl font-black font-['Outfit'] mobile-link">Blog</a>
+					<a href="/blogs" class="text-4xl font-black font-['Outfit'] mobile-link">Portfolio</a>
+					<button id="menu-close" class="mt-8 p-4 rounded-full border border-white/10 text-white">
+						<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+						</svg>
+					</button>
+				</nav>
+			</div>
+		</header>
+
+		<main class="pt-32 pb-20 px-6">
+			<slot />
+		</main>
+
+		<footer class="mt-auto border-t border-white/5 py-12 px-6">
+			<div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+				<div class="text-center md:text-left">
+					<p class="text-2xl font-black text-gradient font-['Outfit']">4thave</p>
+					<p class="text-gray-500 text-sm mt-2">Connecting AI, Design, and Future.</p>
+				</div>
+				<div class="flex space-x-6 text-sm text-gray-400">
+					<a href="/about" class="hover:text-white transition-colors">About</a>
+					<a href="/privacy-policy" class="hover:text-white transition-colors">Privacy</a>
+					<p>© 2026 4thave</p>
+				</div>
+			</div>
+		</footer>
+		<script>
+			const menuToggle = document.getElementById('menu-toggle');
+			const menuClose = document.getElementById('menu-close');
+			const mobileMenu = document.getElementById('mobile-menu');
+			const body = document.body;
+
+			function toggleMenu() {
+				mobileMenu?.classList.toggle('hidden');
+				body.classList.toggle('overflow-hidden');
+			}
+
+			menuToggle?.addEventListener('click', toggleMenu);
+			menuClose?.addEventListener('click', toggleMenu);
+
+			// Close menu when clicking links
+			const links = document.querySelectorAll('.mobile-link');
+			links.forEach(link => {
+				link.addEventListener('click', toggleMenu);
+			});
+		</script>
+	</body>
+</html>
+
+<style is:global>
+	header nav {
+		box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	}
+</style>

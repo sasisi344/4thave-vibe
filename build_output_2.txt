@@ -1,0 +1,43 @@
+
+> short-singularity@0.0.1 build
+> astro build
+
+[2m00:49:53[22m [34m[content][39m Syncing content
+[2m00:49:53[22m [34m[content][39m Content config changed
+[2m00:49:53[22m [34m[content][39m Clearing content store
+[2m00:49:53[22m [34m[content][39m Synced content
+[2m00:49:53[22m [34m[types][39m Generated [2m972ms[22m
+[2m00:49:53[22m [34m[build][39m output: [34m"static"[39m
+[2m00:49:53[22m [34m[build][39m mode: [34m"static"[39m
+[2m00:49:53[22m [34m[build][39m directory: [34mC:\Users\sasis\344ob\344ob\08_blog-master\05-4thave\dist\[39m
+[2m00:49:53[22m [34m[build][39m Collecting build info...
+[2m00:49:53[22m [34m[build][39m [32m✓ Completed in 1.01s.[39m
+[2m00:49:53[22m [34m[build][39m Building static entrypoints...
+[2m00:49:55[22m [34m[vite][39m [32m✓ built in 1.62s[39m
+[2m00:49:56[22m [34m[vite][39m [32m✓ built in 1.39s[39m
+[2m00:49:57[22m [34m[build][39m Rearranging server assets...
+
+[42m[30m generating static routes [39m[49m
+[2m00:49:57[22m   [34m├─[39m [2m/about/index.html[22m [2m(+17ms)[22m 
+[2m00:49:57[22m   [34m├─[39m [2m/blogs/bouon-lab/index.html[22m [2m(+16ms)[22m 
+[2m00:49:57[22m   [34m├─[39m [2m/blogs/cho-hamanako/index.html[22m [2m(+12ms)[22m 
+[2m00:49:57[22m   [34m├─[39m [2m/blogs/kaijo-fishing/index.html[22m [2m(+11ms)[22m 
+[2m00:49:57[22m   [34m├─[39m [2m/blogs/syllabus-hack/index.html[22m [2m(+11ms)[22m 
+[2m00:49:57[22m   [34m├─[39m [2m/blogs/index.html[22m [31m(+570ms)[39m 
+[2m00:49:57[22m   [34m├─[39m [2m/notes/index.html[22m [2m(+8ms)[22m 
+[2m00:49:57[22m   [34m├─[39m [2m/notes/2026/03/w14/2026-03-25/index.html[22m [2m(+13ms)[22m 
+[2m00:49:57[22m   [34m├─[39m [2m/notes/2026/03/w14/2026-03-26/index.html[22m [2m(+24ms)[22m 
+[2m00:49:57[22m   [34m├─[39m [2m/notes/tag/sns/index.html[22m [2m(+10ms)[22m 
+[2m00:49:57[22m   [34m├─[39m [2m/notes/tag/アルゴリズム/index.html[22m [2m(+7ms)[22m 
+[2m00:49:57[22m   [34m├─[39m [2m/notes/tag/セキュリティ/index.html[22m [2m(+8ms)[22m 
+[2m00:49:57[22m   [34m├─[39m [2m/notes/tag/4次元/index.html[22m [2m(+7ms)[22m 
+[2m00:49:57[22m   [34m├─[39m [2m/notes/tag/科学/index.html[22m [2m(+6ms)[22m 
+[2m00:49:57[22m   [34m├─[39m [2m/notes/tag/思考/index.html[22m [2m(+5ms)[22m 
+[2m00:49:57[22m   [34m├─[39m [2m/notes/tag/物理学/index.html[22m [2m(+9ms)[22m 
+[2m00:49:57[22m   [34m├─[39m [2m/privacy-policy/index.html[22m [2m(+8ms)[22m 
+[2m00:49:57[22m   [34m├─[39m [2m/index.html[22m [2m(+26ms)[22m 
+[2m00:49:57[22m [32m✓ Completed in 869ms.
+[39m
+[2m00:49:57[22m [34m[build][39m [32m✓ Completed in 4.02s.[39m
+[2m00:49:57[22m [34m[build][39m 18 page(s) built in [1m5.04s[22m
+[2m00:49:57[22m [34m[build][39m [1mComplete![22m

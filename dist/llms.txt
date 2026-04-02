@@ -1,0 +1,29 @@
+# 4thave Vibe
+
+> Connecting AI, Design, and Future.
+
+## About
+4thave is a personal portfolio and blog project by **sasisi344**. It focuses on:
+- **AI & GenAI Implementation** (LLMs, automation, hacking)
+- **Web Design & Development** (Astro, React, Tailwind)
+- **Personal growth and insights** in the digital era.
+
+## Projects
+- **防音Lab** (bouon-lab.com): Specialized site for soundproofing.
+- **海の上のアングラー** (kaijo-fishing.com): Information site for sea fishing ponds.
+- **釣！浜名湖**: specialized fishing information site for Hamanako Lake.
+- **Syllabus Hack** (syllabushack.com): Learning and exam preparation support.
+
+## Full Content Map
+- Blog Notes: https://4thavenue.info/notes
+- Portfolio: https://4thavenue.info/blogs
+- Privacy Policy: https://4thavenue.info/privacy-policy
+- About: https://4thavenue.info/about
+
+## Identity
+Sashishi (sasisi344) is the author. He is based in Hamamatsu, Shizuoka. He has over 20 years of web experience and currently explores development using AI agents (Antigravity).
+
+## Note Rule
+- Current year: 2026
+- Main topic: Daily "Vibes" and insights.
+- Category: Jurnal (Main category)

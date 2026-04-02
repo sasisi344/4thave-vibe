@@ -1,0 +1,91 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const blogs = await getCollection('blogs');
+  return blogs.map(blog => ({
+    params: { slug: blog.id },
+    props: { blog },
+  }));
+}
+
+const { blog } = Astro.props;
+const { Content } = await render(blog);
+---
+
+<Layout title={blog.data.title} description={blog.data.description}>
+	<article class="max-w-4xl mx-auto py-12 px-6">
+		<a href="/blogs" class="inline-flex items-center text-sm text-gray-500 hover:text-white transition-colors mb-12 group">
+			<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 group-hover:-translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+			</svg>
+			Back to list
+		</a>
+
+		<header class="mb-16">
+			<div class="aspect-video w-full rounded-[2.5rem] overflow-hidden mb-12 glass border border-white/5">
+				<img 
+					src={`https://api.microlink.io?url=${encodeURIComponent(blog.data.url)}&screenshot=true&embed=screenshot.url`}
+					alt={blog.data.title}
+					className="w-full h-full object-cover"
+				/>
+			</div>
+			
+			<div class="flex flex-col md:flex-row md:items-end justify-between gap-8">
+				<div>
+					<span class="inline-block px-4 py-1 rounded-full bg-green-500/10 text-green-400 text-xs font-bold mb-4 uppercase tracking-[0.2em]">
+						{blog.data.category}
+					</span>
+					<h1 class="text-4xl md:text-6xl font-black mb-6 font-['Outfit']">{blog.data.title}</h1>
+					<p class="text-xl text-gray-400 leading-relaxed font-medium">
+						{blog.data.description}
+					</p>
+				</div>
+				<a 
+					href={blog.data.url} 
+					target="_blank" 
+					rel="noopener noreferrer"
+					class="px-8 py-4 rounded-full bg-gradient-to-r from-green-500 to-emerald-600 text-white font-bold hover:shadow-[0_0_30px_rgba(34,197,94,0.3)] transition-all text-center"
+				>
+					Visit Website
+				</a>
+			</div>
+		</header>
+
+		<div class="prose prose-invert prose-lg max-w-none glass p-8 md:p-12 rounded-[2rem] border-white/5 bg-white/x[0.01]">
+			<Content />
+		</div>
+	</article>
+</Layout>
+
+<style is:global>
+	.prose h2 {
+		font-size: 1.5rem; /* text-2xl */
+		font-weight: 700; /* font-bold */
+		margin-top: 3rem; /* mt-12 */
+		margin-bottom: 1.5rem; /* mb-6 */
+		color: #ffffff; /* text-white */
+	}
+	.prose p {
+		color: #9ca3af; /* text-gray-400 */
+		line-height: 2; /* leading-loose */
+		margin-bottom: 1.5rem; /* mb-6 */
+	}
+	.prose ul {
+		list-style-type: disc; /* list-disc */
+		padding-left: 1.5rem; /* pl-6 */
+		margin-bottom: 2rem; /* mb-8 */
+		color: #9ca3af; /* text-gray-400 */
+	}
+	.prose ul li {
+		margin-bottom: 0.5rem; /* space-y-2 (partial) */
+	}
+	.prose h3 {
+		font-size: 1.25rem; /* text-xl */
+		font-weight: 700; /* font-bold */
+		margin-top: 2rem; /* mt-8 */
+		margin-bottom: 1rem; /* mb-4 */
+		color: #4ade80; /* text-green-400 */
+	}
+</style>

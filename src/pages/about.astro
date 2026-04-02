@@ -1,0 +1,91 @@
+---
+import Layout from '../layouts/Layout.astro';
+import sasisiImage from '../assets/images/sasisi344.jpg';
+---
+
+<Layout title="About" description="サイト「4thave」と運営者について">
+	<div class="max-w-3xl mx-auto prose prose-invert">
+		<h1 class="text-4xl font-black mb-12 text-center text-gradient font-['Outfit'] italic">About</h1>
+		
+		<section class="mb-16">
+			<div class="glass p-8 rounded-3xl border-white/5 bg-white/x[0.02]">
+				<h2 class="text-2xl font-bold mb-6 flex items-center">
+					<span class="mr-3 text-green-400">#</span> サイトについて
+				</h2>
+				<p class="text-gray-300 leading-relaxed mb-4">
+					「4thave」は、AI（生成AI）をフル活用した技術系ポートフォリオとしての確立を目指しているサイトです。
+				</p>
+				<p class="text-gray-300 leading-relaxed mb-4">
+					現在は<strong>「ブログ運営」</strong>、<strong>「SNS」</strong>、<strong>「note」</strong>、<strong>「備忘録」</strong>を軸に、デジタル上の様々な成果を網羅しています。
+				</p>
+				<p class="text-gray-300 leading-relaxed">
+					AIという強力なパートナーとともに、最新技術や効率化の知見を積み重ねていくプロセスそのものを発信しています。
+				</p>
+			</div>
+		</section>
+
+		<section class="mb-16">
+			<div class="glass p-8 rounded-[40px] border-white/5 bg-gradient-to-br from-blue-500/5 to-transparent relative overflow-hidden">
+				<div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 blur-[60px] rounded-full"></div>
+				
+				<div class="flex flex-col md:flex-row items-center gap-10 relative z-10">
+					<div class="shrink-0">
+						<img 
+							src={sasisiImage.src} 
+							alt="さしし" 
+							class="w-32 h-32 md:w-40 md:h-40 rounded-full border-2 border-white/10 shadow-2xl object-cover"
+						/>
+					</div>
+					<div class="flex-1 text-center md:text-left">
+						<div class="mb-4">
+							<h2 class="text-3xl font-black font-['Outfit'] italic tracking-tighter mb-1">さしし <span class="text-sm font-medium text-gray-500 italic not-italic font-sans">G.Kurata</span></h2>
+							<p class="text-sm font-bold text-blue-400 tracking-widest uppercase font-['Outfit']">GenAI Creator / Web Director</p>
+						</div>
+						
+						<div class="text-gray-300 leading-relaxed space-y-4 font-medium italic mb-6">
+							<p>「静岡生まれの浜松育ち🗻 料理は作るのも食べるのも得意。生成AIでいろいろやってることをシェアしていくつもり。お気軽にフォローしてください😆」</p>
+						</div>
+
+						<div class="flex flex-wrap justify-center md:justify-start gap-4">
+							<a href="https://www.threads.net/@sasisi344" target="_blank" class="px-6 py-2 rounded-full border border-white/10 text-xs font-black uppercase tracking-widest hover:bg-white/5 transition-colors">Threads</a>
+							<a href="https://github.com/sasisi344" target="_blank" class="px-6 py-2 rounded-full border border-white/10 text-xs font-black uppercase tracking-widest hover:bg-white/5 transition-colors">GitHub</a>
+						</div>
+					</div>
+				</div>
+				
+				<div class="mt-10 pt-8 border-t border-white/5">
+					<p class="text-sm text-gray-400 leading-loose">
+						ウェブサイト運営歴は20年近く。現在はAIエディタ（Antigravity）を活用した開発体験の構築、およびSEO・アフィリエイトの知見を融合させた次世代のメディア運営に注力しています。
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<section class="mb-16">
+			<h2 class="text-2xl font-bold mb-8 text-center uppercase tracking-widest text-gray-500">Other Projects</h2>
+			<div class="grid grid-cols-1 gap-4">
+				<a href="https://kaijo-fishing.com" target="_blank" class="glass p-6 rounded-2xl flex justify-between items-center hover:bg-white/5 transition-all">
+					<span class="font-bold">海の上のアングラー</span>
+					<span class="text-sm text-gray-500">海上釣り堀の情報サイト</span>
+				</a>
+				<a href="https://cho-hamanako.info" target="_blank" class="glass p-6 rounded-2xl flex justify-between items-center hover:bg-white/5 transition-all">
+					<span class="font-bold">釣！浜名湖</span>
+					<span class="text-sm text-gray-500">浜名湖特化型釣り情報</span>
+				</a>
+				<a href="https://bouon-lab.com/" target="_blank" class="glass p-6 rounded-2xl flex justify-between items-center hover:bg-white/5 transition-all">
+					<span class="font-bold">防音Lab</span>
+					<span class="text-sm text-gray-500">防音室・防音賃貸の特化サイト</span>
+				</a>
+				<a href="https://syllabushack.com/" target="_blank" class="glass p-6 rounded-2xl flex justify-between items-center hover:bg-white/5 transition-all">
+					<span class="font-bold">Syllabus Hack</span>
+					<span class="text-sm text-gray-500">効率的な学習と試験対策の支援</span>
+				</a>
+			</div>
+		</section>
+
+		<section class="text-center">
+			<h2 class="text-xl font-bold mb-4 italic">Contact</h2>
+			<p class="text-gray-400">sasisi344@gmail.com</p>
+		</section>
+	</div>
+</Layout>

@@ -1,0 +1,132 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
+import FeaturedNote from '../components/FeaturedNote';
+import TopicExplorer from '../components/TopicExplorer';
+
+const allNotes = await getCollection('notes');
+const sortedNotes = allNotes
+	.sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime());
+
+const latestNotes = sortedNotes.slice(0, 1);
+
+// Get all unique tags from notes
+const allTags = Array.from(new Set(allNotes.flatMap(n => n.data.tags)))
+	.sort();
+
+const formatDate = (date: Date) => {
+	return date.toLocaleDateString('ja-JP', {
+		year: 'numeric',
+		month: '2-digit',
+		day: '2-digit'
+	});
+};
+---
+
+<Layout title="Top">
+	<section class="max-w-6xl mx-auto text-center py-20 relative overflow-hidden">
+		<div class="absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-green-500/10 blur-[120px] rounded-full -z-10"></div>
+		<h1 class="text-4xl md:text-8xl font-black mb-8 tracking-tighter font-['Outfit'] leading-tight animate-fade-in italic">
+			Explore the <span class="text-gradient">Future</span><br />
+			through 4thave.
+		</h1>
+		<p class="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto leading-relaxed font-medium transition-all hover:text-white duration-500">
+			AI、Webデザイン、電力、そして日々の試行錯誤。<br class="hidden md:block" />
+			変化し続けるデジタル領域での「足跡」をここに集約します。
+		</p>
+	</section>
+
+	<section class="max-w-6xl mx-auto px-6 mb-32">
+		<div class="flex items-end justify-between mb-12">
+			<div>
+				<h2 class="text-4xl font-black mb-2 font-['Outfit'] italic tracking-tighter uppercase">Latest <span class="text-gradient">Thought</span></h2>
+				<p class="text-gray-500 font-medium">Recent update from my daily blog.</p>
+			</div>
+			<a href="/notes" class="text-sm font-bold text-green-400 hover:text-green-300 transition-colors hidden md:flex items-center gap-2 underline underline-offset-8">
+				View all thoughts <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+			</a>
+		</div>
+		{latestNotes.length > 0 && (
+			<div class="relative">
+				<FeaturedNote 
+					client:load
+					id={latestNotes[0].id}
+					title={latestNotes[0].data.title}
+					category={latestNotes[0].data.category}
+					date={formatDate(latestNotes[0].data.publishDate)}
+					description={latestNotes[0].data.description}
+					tags={latestNotes[0].data.tags}
+					contentHtml={latestNotes[0].body || ""} 
+				/>
+				<template id="featured-note-template">
+					{async () => {
+						const { Content } = await render(latestNotes[0]);
+						return <Content />;
+					}}
+				</template>
+			</div>
+		)}
+	</section>
+
+	<section class="max-w-6xl mx-auto px-6 mb-32">
+		<div class="flex items-end justify-between mb-12">
+			<div>
+				<h2 class="text-4xl font-black mb-2 font-['Outfit'] italic tracking-tighter uppercase">Browse by <span class="text-gradient">Topics</span></h2>
+				<p class="text-gray-500 font-medium font-['Outfit'] lowercase tracking-widest text-xs font-black">Segmented by categories through tags.</p>
+			</div>
+		</div>
+		<TopicExplorer client:load allTags={allTags} />
+	</section>
+
+	<section class="max-w-6xl mx-auto px-6 mb-32">
+		<a href="/blogs" class="block group glass p-12 rounded-[48px] border border-white/5 bg-gradient-to-br from-green-500/10 via-transparent to-transparent relative overflow-hidden">
+			<div class="absolute top-0 right-0 w-1/2 h-full bg-[radial-gradient(circle_at_right,_var(--tw-gradient-from)_0%,_transparent_70%)] from-green-500/20 pointer-events-none opacity-50"></div>
+			<div class="relative z-10 max-w-xl">
+				<h2 class="text-3xl md:text-5xl font-black mb-6 font-['Outfit'] leading-tight animate-glow-text uppercase tracking-tighter italic">My Professional <br /><span class="text-gradient">Portfolio Projects</span></h2>
+				<p class="text-lg text-gray-400 leading-relaxed mb-10 font-medium">
+					防音Labや浜名湖釣り情報など、特定のテーマに特化したウェブサイト運営の全貌。戦略的な開発と運営の知見を公開しています。
+				</p>
+				<button class="px-8 py-4 rounded-full bg-white text-black font-bold hover:bg-green-400 transition-all duration-300 flex items-center gap-2 group-hover:px-10">
+					Explore Projects
+					<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+					</svg>
+				</button>
+			</div>
+		</a>
+	</section>
+
+	<section class="max-w-4xl mx-auto mb-32 text-center py-24 px-8 glass rounded-[40px] border border-white/5 overflow-hidden relative">
+		<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-green-500/30 to-transparent"></div>
+		<div class="absolute -bottom-24 -left-24 w-64 h-64 bg-green-500/10 blur-[80px] rounded-full"></div>
+		<h2 class="text-3xl font-bold mb-6 font-['Outfit'] italic uppercase tracking-tighter">About <span class="text-gradient">4thave</span></h2>
+		<p class="text-gray-400 text-lg leading-loose max-w-2xl mx-auto mb-10 font-medium">
+			当サイトは単なるブログではなく、私の「知の拠り所」を再定義するためのプロジェクトです。
+			Astroによる高速なブラウジングと、AIをパートナーとしたコンテンツ制作の融合を体現しています。
+		</p>
+		<div class="flex justify-center gap-4">
+			<a href="/about" class="px-10 py-4 rounded-full border border-white/10 font-bold hover:bg-white/5 transition-colors">Read More About Me</a>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.animate-fade-in {
+		animation: fadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+	}
+
+	@keyframes fadeIn {
+		from {
+			opacity: 0;
+			transform: translateY(20px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	.animate-glow-text {
+		text-shadow: 0 0 20px rgba(74, 222, 128, 0.2);
+	}
+</style>

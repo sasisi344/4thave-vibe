@@ -1,0 +1,34 @@
+
+> short-singularity@0.0.1 build
+> astro build
+
+[2m00:49:17[22m [34m[content][39m Syncing content
+[2m00:49:17[22m [34m[content][39m Content config changed
+[2m00:49:17[22m [34m[content][39m Clearing content store
+[InvalidContentEntryDataError] notes → 2026/03/w14/2026-03-25 data does not match collection schema.
+
+  **: [
+  {
+    "code": "invalid_value",
+    "values": [
+      "Diary",
+      "Tech",
+      "Local",
+      "Knowledge"
+    ],
+    "path": [
+      "category"
+    ],
+    "message": "Invalid option: expected one of \"Diary\"|\"Tech\"|\"Local\"|\"Knowledge\""
+  }
+]
+
+  Hint:
+    See https://docs.astro.build/en/guides/content-collections/ for more information on content schemas.
+  Error reference:
+    https://docs.astro.build/en/reference/errors/invalid-content-entry-data-error/
+  Location:
+    C:\Users\sasis\344ob\344ob\08_blog-master\05-4thave\src\content\notes\2026\03\W14\2026-03-25.mdx:0:0
+  Stack trace:
+    at getEntryData (C:\Users\sasis\344ob\344ob\08_blog-master\05-4thave\node_modules\astro\dist\content\utils.js:123:16)
+    at async eval (C:\Users\sasis\344ob\344ob\08_blog-master\05-4thave\node_modules\astro\dist\content\loaders\glob.js:211:13)

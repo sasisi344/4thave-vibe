@@ -1,0 +1,15 @@
+
+export default new Map([
+["src/content/blogs/bouon-lab.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fblogs%2Fbouon-lab.mdx&astroContentModuleFlag=true")],
+["src/content/blogs/cho-hamanako.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fblogs%2Fcho-hamanako.mdx&astroContentModuleFlag=true")],
+["src/content/blogs/kaijo-fishing.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fblogs%2Fkaijo-fishing.mdx&astroContentModuleFlag=true")],
+["src/content/blogs/syllabus-hack.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fblogs%2Fsyllabus-hack.mdx&astroContentModuleFlag=true")],
+["src/content/notes/2026/03/W14/2026-03-25.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fnotes%2F2026%2F03%2FW14%2F2026-03-25.mdx&astroContentModuleFlag=true")],
+["src/content/notes/2026/03/W14/2026-03-26.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fnotes%2F2026%2F03%2FW14%2F2026-03-26.mdx&astroContentModuleFlag=true")],
+["src/content/notes/2026/03/W14/2026-03-29.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fnotes%2F2026%2F03%2FW14%2F2026-03-29.mdx&astroContentModuleFlag=true")],
+["src/content/notes/2026/03/W14/ai-scheduling-2026-03-26.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fnotes%2F2026%2F03%2FW14%2Fai-scheduling-2026-03-26.mdx&astroContentModuleFlag=true")],
+["src/content/notes/2026/03/W14/airplane-streaming-2026-03-28.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fnotes%2F2026%2F03%2FW14%2Fairplane-streaming-2026-03-28.mdx&astroContentModuleFlag=true")],
+["src/content/notes/2026/03/W14/data-analysis-2026-03-30.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fnotes%2F2026%2F03%2FW14%2Fdata-analysis-2026-03-30.mdx&astroContentModuleFlag=true")],
+["src/content/notes/2026/03/W14/listening-strategy-2026-03-27.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fnotes%2F2026%2F03%2FW14%2Flistening-strategy-2026-03-27.mdx&astroContentModuleFlag=true")],
+["src/content/notes/2026/04/W14/chrome-gemini-2026-04-01.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fnotes%2F2026%2F04%2FW14%2Fchrome-gemini-2026-04-01.mdx&astroContentModuleFlag=true")]]);
+		
