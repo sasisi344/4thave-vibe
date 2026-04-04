@@ -22,4 +22,8 @@ The project uses **Astro Content Collections**.
 - `src/content/notes/`: For quick memos and short-form notes.
 
 ---
-Updated on 2026-03-25: Replaced Hugo information with Astro.
+Updated on 2026-04-04: Added explicit rule for image generation.
+
+## Image Generation Rules
+- **Wait for Instructions**: DO NOT generate images automatically. Only perform image generation when explicitly requested by the user.
+- **Style Consistency**: For any image generation, refer to the "simple and majestic" style defined in `.workspace/script/Antigravity-nanobana/prompts/4thave-image-generation.json`.
