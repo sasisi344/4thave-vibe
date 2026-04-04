@@ -11,5 +11,6 @@ export default new Map([
 ["src/content/notes/2026/03/W14/airplane-streaming-2026-03-28.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fnotes%2F2026%2F03%2FW14%2Fairplane-streaming-2026-03-28.mdx&astroContentModuleFlag=true")],
 ["src/content/notes/2026/03/W14/data-analysis-2026-03-30.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fnotes%2F2026%2F03%2FW14%2Fdata-analysis-2026-03-30.mdx&astroContentModuleFlag=true")],
 ["src/content/notes/2026/03/W14/listening-strategy-2026-03-27.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fnotes%2F2026%2F03%2FW14%2Flistening-strategy-2026-03-27.mdx&astroContentModuleFlag=true")],
+["src/content/notes/2026/04/W14/ai-influencer-2026-04-04.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fnotes%2F2026%2F04%2FW14%2Fai-influencer-2026-04-04.mdx&astroContentModuleFlag=true")],
 ["src/content/notes/2026/04/W14/chrome-gemini-2026-04-01.mdx", () => import("astro:content-layer-deferred-module?astro%3Acontent-layer-deferred-module=&fileName=src%2Fcontent%2Fnotes%2F2026%2F04%2FW14%2Fchrome-gemini-2026-04-01.mdx&astroContentModuleFlag=true")]]);
 		
