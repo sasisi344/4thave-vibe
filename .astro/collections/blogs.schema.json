@@ -37,6 +37,8 @@
     "title",
     "url",
     "description",
-    "category"
-  ]
+    "category",
+    "tags"
+  ],
+  "additionalProperties": false
 }

@@ -36,6 +36,8 @@
   "required": [
     "title",
     "publishDate",
-    "category"
-  ]
+    "category",
+    "tags"
+  ],
+  "additionalProperties": false
 }
