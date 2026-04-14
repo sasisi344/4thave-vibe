@@ -37,10 +37,22 @@ const formatDate = (date: Date) => {
 };
 
 const Content = type === 'post' ? (await render(note)).Content : null;
+
+const jsonLd = type === 'post' ? JSON.stringify({
+	'@context': 'https://schema.org',
+	'@type': 'BlogPosting',
+	headline: note.data.title,
+	description: note.data.description ?? '',
+	datePublished: note.data.publishDate.toISOString(),
+	url: new URL(`/notes/${note.id}/`, Astro.site).href,
+	author: { '@type': 'Person', name: '4thave' },
+	publisher: { '@type': 'Organization', name: '4thave', url: Astro.site },
+}) : null;
 ---
 
 {type === 'post' ? (
 	<Layout title={note.data.title} description={note.data.description}>
+		<script slot="head" type="application/ld+json" set:html={jsonLd} />
 		<article class="max-w-3xl mx-auto py-20 px-6 animate-fade-in">
 			<header class="mb-12">
 				<div class="flex items-center gap-4 mb-6">
@@ -81,7 +93,7 @@ const Content = type === 'post' ? (await render(note)).Content : null;
 		</article>
 	</Layout>
 ) : (
-	<Layout title={`${tag?.toUpperCase()} Archives`}>
+	<Layout title={`${tag?.toUpperCase()} Archives`} description={`「${tag}」タグに関連するノートのアーカイブ。AI・デザイン・日常の思考断片を集めた4thaveのパーソナルブログ。`}>
 		<div class="max-w-4xl mx-auto py-12 px-6">
 			<header class="text-center mb-20 animate-fade-in">
 				<h1 class="text-4xl md:text-6xl font-black mb-6 font-['Outfit'] italic tracking-tighter uppercase">

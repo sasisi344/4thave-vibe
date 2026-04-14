@@ -13,11 +13,12 @@ const { title, description = "4thave - ブログ運営・SNS・note・備忘録"
 <html lang="ja">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title} | 4thave</title>
 		<meta name="description" content={description} />
+		<link rel="canonical" href={Astro.url} />
 
 		<!-- Google Analytics 4 -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-7VW60YTX4F"></script>
@@ -36,11 +37,13 @@ const { title, description = "4thave - ブログ運営・SNS・note・備忘録"
 		<meta property="og:image" content={new URL('/4thave-ogp.jpg', Astro.site)} />
 
 		<!-- Twitter -->
-		<meta property="twitter:card" content="summary_large_image" />
-		<meta property="twitter:url" content={Astro.url} />
-		<meta property="twitter:title" content={`${title} | 4thave`} />
-		<meta property="twitter:description" content={description} />
-		<meta property="twitter:image" content={new URL('/4thave-ogp.jpg', Astro.site)} />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:url" content={Astro.url} />
+		<meta name="twitter:title" content={`${title} | 4thave`} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={new URL('/4thave-ogp.jpg', Astro.site)} />
+
+		<slot name="head" />
 
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
