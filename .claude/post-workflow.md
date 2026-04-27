@@ -7,7 +7,7 @@
 ## 1. 記事の清書（Refine）
 
 - **文字数**: 300〜600文字程度の「気づき」に要約・リライトする。
-- **トーン**: `editorial-guide.md` に従い、個人の主観（Sashishi persona）を全面に出す。
+- **トーン**: `.cursor/rules/editorial-guide.md` に従い、個人の主観（Sashishi persona）を全面に出す。
 - **フォーマット**:
   - `**強調**` を `<strong>強調</strong>` に置換する。
   - 適度に `>`（引用）や `-`（箇条書き）を使い、空行によるリズムを作る。
