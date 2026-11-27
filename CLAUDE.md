@@ -23,7 +23,7 @@
 ## 画像生成ルール
 
 - 明示指示があるまで画像生成を実行しない。
-- 画像生成を行う場合は、ワークスペース共通ルールの指定スクリプトとスタイル定義に従う。
+- 画像（サムネイル・インフォグラフィック）の作成は Codex に任せ、Codex の組み込み画像生成 `image_gen` で作る。Codex のリソースがないときだけ、ワークスペース共通ルールの指定スクリプト（Antigravity-nanobana。Gemini API）とスタイル定義に従って作る（2026-11-27 ユーザー決定。`C:\Users\sasis\344blog\hq\.workspace\task\org\codex-imagegen.md`）。
 
 ## タスク管理（GitHub Project 統合、2026-09-25〜）
 
